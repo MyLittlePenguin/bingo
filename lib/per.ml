@@ -37,3 +37,7 @@ let bingo lst =
   List.fold_left bingo_row [] lst
 
 let mutate lst = List.fold_left (add_mutations) [] lst
+
+let disjunct lst1 lst2 = 
+  let not_in lst it = List.exists (fun x -> x = it) lst |> not in
+  List.for_all (not_in lst1) lst2
